@@ -89,7 +89,7 @@ while true do
     local _, _, _, y, _, _ = e.pull("touch")
     local choice = math.floor((y - 3) / 2) + 1
     if choice == 1 then
-        install(stable)
+        install()
         -- Currently the Placeholder(TM)
     elseif choice == 2 then
         break
