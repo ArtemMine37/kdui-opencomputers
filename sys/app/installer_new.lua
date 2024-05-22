@@ -25,9 +25,9 @@ local function installer()
   io.write("-> ")
   ver = io.read()
   if ver == "1" then
-    install("stable")
+    install()
   elseif ver == "2" then
-    install("main")
+    install()
   end
 end
 
