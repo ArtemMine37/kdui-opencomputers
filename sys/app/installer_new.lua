@@ -44,7 +44,7 @@ local function installer()
   end
 end
 
-local function installUi()
+function installUi()
   -- Setting some variables
   -- Now installing
   print("    [Checking for directories]")
