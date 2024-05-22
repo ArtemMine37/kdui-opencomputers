@@ -68,26 +68,7 @@ local function install(branch)
     end
 end
 
-local function installSeparateProgram()
-  print("Please type the drive ID. you can find this by leaving the screen, hovering over the drive, and looking at the first 3 characters of the long string in the tooltip of the drive (the thing with the name and stuff)")
-  io.write("drive ID -> ")
-  local installMedia = io.read()
-  print ("Getting files...")
-  local sourcedir = "/mnt/" .. installMedia
-  local destdir = "/home/"
-  -- Iterate through all files in the source directory
-  for entry in fs.list(sourcedir) do
-    local sourcePath = sourcedir .. "/" .. entry
-    local destinationPath = destdir .. "/" .. entry
-    if not fs.isDirectory(sourcePath) then
-      fs.copy(sourcePath, destinationPath)
-    end
-  end
-end
-  centerText(h - 2, "Files copied successfully.", 0xFFFFFF)
-
-
-installerMenu()
+installer()
 
 local function dirCheck(dir)
   if fs.exists(dir) and fs.isDirectory(dir) then
