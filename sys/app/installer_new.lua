@@ -33,7 +33,6 @@ end
 
 local function install()
   -- Setting some variables
-  local gitrepo = "https://raw.githubusercontent.com/Owner/Repo/"..branch
   -- Now installing
   print("    [Checking for directories]")
   dirCheck("/sys/apps")
