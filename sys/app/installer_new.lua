@@ -14,6 +14,19 @@ local function centerText(y, text, color)
     gpu.set(x, y, text)
 end
 
+local function dirCheck(dir)
+  if fs.exists(dir) and fs.isDirectory(dir) then
+    print(dir.." exists. Skipping...")
+  else
+    print(dir.." does not exist. Creating...")
+    fs.makeDirectory(dir)
+  end
+end
+
+local function wgetDownload(link, destination)
+  print("Downloading a file [to: " .. destination .. "]")
+  os.execute("wget -f "..link.." "..destination.."")
+end
 -- New installer which has a simpler UI
 
 local function installer()
@@ -68,20 +81,6 @@ local function install()
 end
 
 installer()
-
-local function dirCheck(dir)
-  if fs.exists(dir) and fs.isDirectory(dir) then
-    print(dir.." exists. Skipping...")
-  else
-    print(dir.." does not exist. Creating...")
-    fs.makeDirectory(dir)
-  end
-end
-
-local function wgetDownload(link, destination)
-  print("Downloading a file [to: " .. destination .. "]")
-  os.execute("wget -f "..link.." "..destination.."")
-end
 
 
 while true do
