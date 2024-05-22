@@ -107,7 +107,7 @@ end
 while true do
     local _, _, _, y, _, _ = e.pull("touch")
     local choice = math.floor((y - 3) / 2) + 1
-    elseif choice == 1 then
+    if choice == 1 then
         installFromGithub()
     elseif choice == 2 then
       installSeparateProgram()
