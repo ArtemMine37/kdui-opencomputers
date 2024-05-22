@@ -110,8 +110,6 @@ while true do
     if choice == 1 then
         installFromGithub()
     elseif choice == 2 then
-      installSeparateProgram()
-    elseif choice == 3 then
         break
     end
     installer()
