@@ -6,14 +6,15 @@ local e = require("event")
 local t = require("term")
 local centerText = require("centerText")
 
-local appdir = "/sys/apps"
+local appdir = "/sys/app"
+local uiVersion = "1.0"
 
 local w, h = gpu.getResolution()
 gpu.fill(1, 1, w, h, " ")
 
 local function updateOptions()
     local luaFiles = {}
-    for file in fs.list("/sys/apps") do
+    for file in fs.list("/sys/app") do
         if (file:sub(-4) == ".lua" or file:sub(-4) == ".txt") and file ~= "main.lua" then
             table.insert(luaFiles, file:sub(1, -5))
         end
@@ -24,9 +25,8 @@ end
 local function displaySystemInfo()
     local memCap = math.floor(c.totalMemory() / 1000)
     local memUsed = math.floor(memCap - (c.freeMemory() / 1000))
-    local memUsed = math.floor(memCap - (c.freeMemory() / 1000))
-    centerText(h - 2, "Total RAM: " .. memCap .. "KB", 0xFFFFFF)
-    centerText(h - 1, "Used RAM: " .. memUsed .. "KB", 0xFFFFFF)
+    centerText(h - 2, "Date:"..memCap.." / OS Version: "..uiVersion, 0xFFFFFF)
+    centerText(h - 1, "Used RAM: "..memUsed.." / "..memCap.." KB", 0xFFFFFF)
 end
 
 local function displayMenu(options, topText)
