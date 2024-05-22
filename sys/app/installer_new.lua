@@ -48,7 +48,7 @@ function installUi()
   -- Setting some variables
   -- Now installing
   print("    [Checking for directories]")
-  dirCheck("/sys/apps")
+  dirCheck("/sys/app")
   dirCheck("/sys/util")
   dirCheck("/sys/env")
 
