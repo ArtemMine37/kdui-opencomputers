@@ -57,17 +57,17 @@ function installUi()
   print("Creating reload file (KEEP EMPTY, THIS IS JUST TO RELOAD THE MAIN ENVIRONMENT)")
   os.execute("touch /sys/apps/reload.lua")
 
-  local BaseLink="https://raw.githubusercontent.com/ArtemMine37/opencomputers-denisui/main"
+  local BaseLink="https://raw.githubusercontent.com/ArtemMine37/opencomputers-denisui/old-rel-1"
   
   print("    [Downloading DenisUI / Libraries]")
     wgetDownload(BaseLink.."/sys/lib/centerText.lua", "/lib/centerText.lua")
   
   print("    [Downloading DenisUI / Base]")
     wgetDownload(BaseLink.."/sys/env/main.lua", "/sys/env/main.lua")
-    wgetDownload(BaseLink.."/sys/app/file_manager.lua", "/sys/app/file_manager.lua")
+    wgetDownload(BaseLink.."/sys/app/file_manager.lua", "/sys/app/FileManager.lua")
     wgetDownload(BaseLink.."/sys/app/updater.lua", "/sys/app/updater.lua")
     wgetDownload(BaseLink.."/sys/app/installer.lua", "/sys/app/installer.lua")
-    wgetDownload(BaseLink.."/sys/util/term.lua", "/sys/util/term.lua")
+    wgetDownload(BaseLink.."/sys/app/term.lua", "/sys/app/Terminal.lua")
   
   print("    [Installing DenisUI / Boot]")
     print("Replacing shell startup script...")
