@@ -25,7 +25,7 @@ end
 local function displaySystemInfo()
     local memCap = math.floor(c.totalMemory() / 1000)
     local memUsed = math.floor(memCap - (c.freeMemory() / 1000))
-    centerText(h - 2, "Date:"..memCap.." / OS Version: "..uiVersion, 0xFFFFFF)
+    centerText(h - 2, "Total RAM: "..memCap.." / OS Version: "..uiVersion, 0xFFFFFF)
     centerText(h - 1, "Used RAM: "..memUsed.." / "..memCap.." KB", 0xFFFFFF)
 end
 
@@ -39,8 +39,8 @@ local function displayMenu(options, topText)
     end
 end
 local options = updateOptions()
-table.insert(options, "reboot")
-table.insert(options, "shutdown")
+table.insert(options, "Reboot")
+table.insert(options, "Shutdown")
 local topText = "DenisUI / OpenComputers Edition"
 
 displayMenu(options, topText)
