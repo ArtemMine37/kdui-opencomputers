@@ -8,18 +8,18 @@ print("loading...")
 local wd = shell.getWorkingDirectory()
 
 term.clear()
-print("XFterm 1.0.0")
+print("Terminal 1.0.0")
 print("For help, type help\nTo exit, type exit")
 
 while true do
-  io.write("[root@PC " .. shell.getWorkingDirectory() .. "]")
+  io.write("[root@PC " .. shell.getWorkingDirectory() .. "] ")
   local command = io.read()
   if command == "exit" then
     break
   elseif command == "help" then
-    print("-- HELP --")
+    print("\n-- HELP --")
     print("Commands: \nhelp - Shows this menu\nexit - closes the command prompt")
-    print("-- HELP --")
+    print("-- HELP --\n")
   elseif command:find("cd ") then
     local newDir = command:sub(4)
     if not newDir:find("/") then
