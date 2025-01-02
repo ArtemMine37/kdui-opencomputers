@@ -5,6 +5,8 @@ local e = require("event")
 local t = require("term")
 local c = require("computer")
 
+-- WARNING: the new update is coming...
+
 local w, h = gpu.getResolution()
 gpu.fill(1, 1, w, h, " ")
 
@@ -29,11 +31,11 @@ local function wgetDownload(link, destination)
 end
 -- New installer which has a simpler UI
 
-local function installer()
+function installer()
   print("Welcome to the DenisUI Installer! Choose a DenisUI branch:")
   print(" [1]  DenisUI Stable")
-  print(" [2]  DenisUI Unstable")
-  print(" [3]  Custom (or fork)")
+  print(" [2]  DenisUI Unstable") -- obv not working
+  print(" [3]  Custom (or fork)") -- same as 2nd option
   -- Note: Custom one just runs your installer
   io.write("-> ")
   ver = io.read()
@@ -54,22 +56,23 @@ function installUi()
 
   print("Creating reload file (KEEP EMPTY, THIS IS JUST TO RELOAD THE MAIN ENVIRONMENT)")
   os.execute("touch /sys/apps/reload.lua")
+
+  local BaseLink="https://raw.githubusercontent.com/ArtemMine37/opencomputers-denisui/main"
   
   print("    [Downloading DenisUI / Libraries]")
-    wgetDownload("https://raw.githubusercontent.com/Tavyza/TherOS/main/sys/lib/centerText.lua", "/lib/centertext.lua")
-    wgetDownload("https://raw.githubusercontent.com/Tavyza/TherOS/main/sys/lib/desktopIcons.lua", "/lib/desktopicons.lua")
+    wgetDownload(BaseLink.."/sys/lib/centerText.lua", "/lib/centertext.lua")
   
   print("    [Downloading DenisUI / Base]")
-    wgetDownload("https://raw.githubusercontent.com/Tavyza/TherOS/main/sys/env/main.lua", "/sys/env/main.lua")
-    wgetDownload("https://raw.githubusercontent.com/Tavyza/TherOS/main/sys/app/file_manager.lua", "/sys/app/file_manager.lua")
-    wgetDownload("https://raw.githubusercontent.com/Tavyza/TherOS/main/sys/app/updater.lua", "/sys/app/updater.lua")
-    wgetDownload("https://raw.githubusercontent.com/Tavyza/TherOS/main/sys/app/installer.lua", "/sys/app/installer.lua")
-    wgetDownload("https://raw.githubusercontent.com/Tavyza/TherOS/main/sys/util/term.lua", "/sys/util/term.lua")
+    wgetDownload(BaseLink.."/sys/env/main.lua", "/sys/env/main.lua")
+    wgetDownload(BaseLink.."/sys/app/file_manager.lua", "/sys/app/file_manager.lua")
+    wgetDownload(BaseLink.."/sys/app/updater.lua", "/sys/app/updater.lua")
+    wgetDownload(BaseLink.."/sys/app/installer.lua", "/sys/app/installer.lua")
+    wgetDownload(BaseLink.."/sys/util/term.lua", "/sys/util/term.lua")
   
   print("    [Installing DenisUI / Boot]")
     print("Replacing shell startup script...")
     fs.remove("/boot/94_shell.lua")
-    wgetDownload("https://raw.githubusercontent.com/Tavyza/TherOS/main/sys/systempuller.lua", "/boot/94_bootloader.lua")
+    wgetDownload(BaseLink.."/sys/systempuller.lua", "/boot/94_bootloader.lua")
     print("Installation finished! A reboot is required to get the system set up. Would you like to reboot now?")
     io.write("y/n -> ")
     rb = io.read()
