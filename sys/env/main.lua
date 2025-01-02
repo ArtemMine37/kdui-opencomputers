@@ -51,11 +51,14 @@ while true do
     local choice = math.floor((y - 3) / 2) + 1
     if choice >= 1 and choice <= #options then
         local selectedOption = options[choice]
-        if selectedOption == "reboot" then
+        if selectedOption == "Reboot" then
             os.execute("reboot")
-        elseif selectedOption == "shutdown" then
+        elseif selectedOption == "Shutdown" then
             c.shutdown()
-        elseif selectedOption == "console" then
+        elseif selectedOption == "Terminal" then
+            os.execute(appdir .. "/" .. selectedOption)
+            displayMenu(options, topText)
+        elseif selectedOption == "FileManager" then
             os.execute(appdir .. "/" .. selectedOption)
             displayMenu(options, topText)
         end
