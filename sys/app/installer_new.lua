@@ -60,7 +60,7 @@ function installUi()
   local BaseLink="https://raw.githubusercontent.com/ArtemMine37/opencomputers-denisui/main"
   
   print("    [Downloading DenisUI / Libraries]")
-    wgetDownload(BaseLink.."/sys/lib/centerText.lua", "/lib/centertext.lua")
+    wgetDownload(BaseLink.."/sys/lib/centerText.lua", "/lib/centerText.lua")
   
   print("    [Downloading DenisUI / Base]")
     wgetDownload(BaseLink.."/sys/env/main.lua", "/sys/env/main.lua")
