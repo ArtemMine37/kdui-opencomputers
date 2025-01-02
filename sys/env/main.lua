@@ -25,7 +25,7 @@ end
 local function displaySystemInfo()
     local memCap = math.floor(c.totalMemory() / 1000)
     local memUsed = math.floor(memCap - (c.freeMemory() / 1000))
-    centerText(h - 2, "Total RAM: "..memCap.." / OS Version: "..uiVersion, 0xFFFFFF)
+    centerText(h - 2, "Total RAM: "..memCap.."KB / OS Version: "..uiVersion, 0xFFFFFF)
     centerText(h - 1, "Used RAM: "..memUsed.." / "..memCap.." KB", 0xFFFFFF)
 end
 
@@ -41,7 +41,8 @@ end
 local options = updateOptions()
 table.insert(options, "Reboot")
 table.insert(options, "Shutdown")
-local topText = "DenisUI / OpenComputers Edition"
+table.insert(options, "Refresh")
+local topText = "kdUI - Main menu"
 
 displayMenu(options, topText)
 
@@ -51,15 +52,17 @@ while true do
     local choice = math.floor((y - 3) / 2) + 1
     if choice >= 1 and choice <= #options then
         local selectedOption = options[choice]
-        if selectedOption == "Reboot" then
+        if selectedOption == "[Reboot]" then
             os.execute("reboot")
-        elseif selectedOption == "Shutdown" then
+        elseif selectedOption == "[Shutdown]" then
             c.shutdown()
         elseif selectedOption == "Terminal" then
             os.execute(appdir .. "/" .. selectedOption)
             displayMenu(options, topText)
         elseif selectedOption == "FileManager" then
             os.execute(appdir .. "/" .. selectedOption)
+            displayMenu(options, topText)
+        elseif selectedOption == "[Refresh]" then
             displayMenu(options, topText)
         end
     end
