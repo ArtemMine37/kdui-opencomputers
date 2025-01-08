@@ -12,5 +12,5 @@ The features include:
 - Non-working file manager
 - Ability to reboot or shut down (very useful tbh)
 # Installation
-Just enter `wget https://raw.githubusercontent.com/ArtemMine37/opencomputers-denisui/refs/heads/old-rel-1/sys/app/installer_new.lua /home/kdui-inst.lua && kdui-inst`
+Just enter `wget https://raw.githubusercontent.com/ArtemMine37/kdui-opencomputers/refs/heads/old-rel-1/sys/app/installer_new.lua /home/kdui-inst.lua && kdui-inst`
 > Make sure you have a Tier 2 screen and an Internet card to run it.
