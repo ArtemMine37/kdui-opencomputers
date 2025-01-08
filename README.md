@@ -7,4 +7,4 @@ The features include:
   - How's the system? It's fine, I guess...
 
 # Installation
-Just enter `wget https://github.com/ArtemMine37/opencomputers-denisui/releases/download/v1.0/installer.lua /home/installer.lua && installer.lua` if you want the legacy version
+Just enter `wget https://github.com/ArtemMine37/kdui-opencomputers/releases/download/v1.0/installer.lua /home/installer.lua && installer.lua` if you want the legacy version
